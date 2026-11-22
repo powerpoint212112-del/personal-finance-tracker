@@ -128,20 +128,42 @@ return (
         <h2 className="mb-5 text-lg font-bold">آخرین تراکنش‌ها</h2>
 
         <div className="space-y-3">
-          {items.map((item) => (
-            <div key={item.id} className="flex items-center justify-between gap-3 border-b border-slate-100 pb-4">
-              <div>
-                <p className="font-semibold">{item.title}</p>
-                <p className="mt-1 text-xs text-slate-400">
-                  {item.category} · {item.date}
-                </p>
-              </div>
-              <p className={`whitespace-nowrap text-sm font-bold ${item.type === "income" ? "text-emerald-600" : "text-rose-500"}`}>
-                {item.type === "income" ? "+" : "-"}{money(item.amount)}
-              </p>
-            </div>
-          ))}
-        </div>
+  {items.map((item) => (
+    <div
+      key={item.id}
+      className="flex items-center justify-between gap-3 border-b border-slate-100 pb-4"
+    >
+      <div>
+        <p className="font-semibold">{item.title}</p>
+        <p className="mt-1 text-xs text-slate-400">
+          {item.category} · {item.date}
+        </p>
+      </div>
+
+      <div className="flex items-center gap-3">
+        <p
+          className={`whitespace-nowrap text-sm font-bold ${
+            item.type === "income" ? "text-emerald-600" : "text-rose-500"
+          }`}
+        >
+          {item.type === "income" ? "+" : "-"}
+          {money(item.amount)}
+        </p>
+
+        <button
+          onClick={() =>
+            setItems((current) =>
+              current.filter((transaction) => transaction.id !== item.id)
+            )
+          }
+          className="rounded-lg bg-rose-50 px-3 py-2 text-xs text-rose-600 hover:bg-rose-100"
+        >
+          حذف
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
       </div>
     </section>
   </div>
