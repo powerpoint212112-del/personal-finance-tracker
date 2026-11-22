@@ -52,7 +52,7 @@ return (
 <header className="mb-10 flex flex-wrap items-center justify-between gap-4">
 <div>
 <h1 className="text-3xl font-black text-slate-900">مدیریت مالی</h1>
-<p className="mt-2 text-sm text-slate-500">داشبورد مدیریت درآمد و هزینه‌های شخصی</p>
+<p className="mt-2 text-sm text-slate-500"> مدیریت درآمد و هزینه‌های شخصی</p>
 </div>
 <div className="rounded-xl bg-white px-4 py-3 text-sm shadow-sm">
 حساب شخصی من
@@ -148,7 +148,7 @@ return (
         >
           {item.type === "income" ? "+" : "-"}
           {money(item.amount)}
-        </p>
+        </p>git status
 
         <button
           onClick={() =>
